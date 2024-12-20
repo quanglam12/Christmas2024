@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chào mừng đến với Lễ hội Giáng sinh!</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="box red">🎁</div>
+        <div class="box green">🎁</div>
+        <div class="box blue">🎁</div>
+        <div class="box yellow">🎁</div>
+    </div>
+    <div class="welcome">
+        <div class="bottom-gift-box">
+            
+            <h1>Merry Christmas</h1>
+            <h2>Chúc bạn có một mùa giáng sinh vui vẻ, hạnh phúc!</h2>
+        </div>
+        <div class="countdown">
+            <p>Đếm ngược đến Giáng sinh:</p>
+            <p id="countdown"></p>
+        </div>
+    </div>
+
+
+    <script>
+        window.addEventListener("load", () => {
+            const loadingScreen = document.getElementById("loading-screen");
+            loadingScreen.style.display = "none";
+        });
+        // Đếm ngược đến Giáng sinh
+        const countdown = document.getElementById('countdown');
+        const christmas = new Date('December 25, 2024 00:00:00').getTime();
+
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = christmas - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                countdown.innerHTML = "Merry Christmas!";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

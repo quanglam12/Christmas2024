@@ -1,0 +1,62 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #00111a, #00334d);
+    overflow: hidden;
+    height: 100vh;
+    /* Đảm bảo container bao phủ toàn bộ màn hình */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Đầy đủ chiều cao màn hình */
+    pointer-events: none;
+    overflow: hidden;
+    /* Ẩn phần thừa của bông tuyết */
+}
+
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    /* Xuất hiện từ phía trên màn hình */
+    color: white;
+    font-size: 10px;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: fall linear infinite, sway ease-in-out infinite;
+    /* Rơi và đung đưa */
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10px);
+        /* Bắt đầu ngay trên màn hình */
+    }
+
+    to {
+        transform: translateY(100vh);
+        /* Rơi xuống hết chiều cao màn hình */
+    }
+}
+
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+}
