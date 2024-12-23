@@ -260,6 +260,19 @@ body {
 #toggle-sound.playing {
     animation: sound-wave 1s infinite;
 }
+@keyframes sound-wave {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 #playgame {
     background-color: #007bff;
     padding: 1rem 2rem;
