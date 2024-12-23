@@ -18,6 +18,10 @@
         <div class="box blue">🎁</div>
         <div class="box yellow">🎁</div>
     </div>
+        <div id="music-controls">
+        <button id="toggle-sound">🔊</button>
+    </div>
+    <audio id="audio-player" src="audio/nhac.mp3" loop></audio>
     <div class="welcome">
         <div class="bottom-gift-box">
 
@@ -81,6 +85,24 @@
         ];
         function getRandomWish() { const randomIndex = Math.floor(Math.random() * wishes.length); return wishes[randomIndex]; }
         document.getElementById('wish').innerText = getRandomWish();
+                document.addEventListener("DOMContentLoaded", function () {
+            const audioPlayer = document.getElementById('audio-player');
+            const toggleSoundButton = document.getElementById('toggle-sound');
+            toggleSoundButton.addEventListener('click', function () {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                    toggleSoundButton.textContent = '▶️';
+                    toggleSoundButton.classList.add('playing');
+
+                } else {
+                    audioPlayer.pause();
+                    toggleSoundButton.textContent = '⏸️';
+                    toggleSoundButton.classList.remove('playing');
+                }
+            });
+
+        });
+
     </script>
 </body>
 
