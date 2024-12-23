@@ -233,7 +233,23 @@ body {
     pointer-events: none;
     z-index: 999;
 }
+#playgame {
+    background-color: #007bff;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+}
 
+#playgame a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#playgame a:hover {
+    text-decoration: underline;
+}
 @media (max-width: 720px) {
     .welcome h2 {
         font-size: 1em;
