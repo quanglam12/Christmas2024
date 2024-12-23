@@ -233,6 +233,33 @@ body {
     pointer-events: none;
     z-index: 999;
 }
+#music-controls {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#music-controls button {
+    padding: 10px;
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#music-controls button:hover {
+    background-color: #0056b3;
+}
+
+#toggle-sound.playing {
+    animation: sound-wave 1s infinite;
+}
 #playgame {
     background-color: #007bff;
     padding: 1rem 2rem;
