@@ -28,25 +28,25 @@ body {
 
 .red {
     color: red;
-    animation-delay: 0s;
+    animation-delay: 0s !important;
     filter: hue-rotate(0deg) saturate(100%);
 }
 
 .green {
     color: green;
-    animation-delay: 0.2s;
+    animation-delay: 0.2s !important;
     filter: hue-rotate(120deg) saturate(100%);
 }
 
 .blue {
     color: blue;
-    animation-delay: 0.4s;
+    animation-delay: 0.4s !important;
     filter: hue-rotate(240deg) saturate(100%);
 }
 
 .yellow {
     color: yellow;
-    animation-delay: 0.6s;
+    animation-delay: 0.6s !important;
     filter: hue-rotate(60deg) saturate(100%);
 }
 
@@ -143,22 +143,117 @@ body {
 
 .countdown {
     margin-top: 20px;
+    text-align: center;
+    background: linear-gradient(to right, #ff7e5f99, #feb47b99);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+.countdown p {
+    margin: 0;
+    margin-bottom: 1em;
 }
 
 #countdown {
-    font-size: 1.5em;
-    color: #e74c3c;
+    margin: 0;
+    font-size: 2em;
+    color: #da0000;
+    font-weight: bold;
+    animation: glow 1.5s infinite alternate;
 }
 
-.events,
-.gifts,
-.recipes,
-.contact {
-    margin: 20px;
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff;
+    }
+}
+
+.quiz {
+    margin: 2rem;
+    padding: 2rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    color: #333333;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#options-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25rem;
+}
+
+.option-button {
+    padding: 1rem 2rem;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option-button:hover {
+    background-color: #0056b3;
+}
+
+
+#result {
+    margin-top: 2rem;
+    color: #2e7d32;
+    padding: 1rem;
+    background: #e8f5e9;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+}
+
+#question-section {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+
+.snow-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
 }
 
 @media (max-width: 720px) {
     .welcome h2 {
         font-size: 1em;
+    }
+
+    .quiz {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    #question-section {
+        font-size: 1.2rem;
+    }
+
+    #result {
+        font-size: 1rem;
     }
 }

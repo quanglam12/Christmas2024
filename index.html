@@ -7,6 +7,8 @@
     <title>Chào mừng đến với Lễ hội Giáng sinh!</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,17 +20,35 @@
     </div>
     <div class="welcome">
         <div class="bottom-gift-box">
-            
+
             <h1>Merry Christmas</h1>
-            <h2>Chúc bạn có một mùa giáng sinh vui vẻ, hạnh phúc!</h2>
+            <h2 id="wish">Chúc bạn có một mùa giáng sinh vui vẻ, hạnh phúc!</h2>
         </div>
         <div class="countdown">
             <p>Đếm ngược đến Giáng sinh:</p>
             <p id="countdown"></p>
         </div>
     </div>
+    <div class="quiz" id="quiz-container">
+        <h2>End-of-Year Reflection</h2>
+        <div id="question-section">
+        </div>
+        <div id="options-section">
+        </div>
+    </div>
+    <div id="result" style="margin-top: 20px; font-size: 1.4rem; font-weight: bold; display: none;">
+    </div>
 
-
+    <canvas class="snow-canvas" speed="1" interaction="false" size="2" count="80" opacity="0.00001"
+        start-color="rgba(253,252,251,1)" end-color="rgba(251,252,253,0.3)" wind-power="0" image="false" width="1118"
+        height="730"></canvas>
+    <canvas class="snow-canvas" speed="3" interaction="true" size="6" count="30" start-color="rgba(253,252,251,1)"
+        end-color="rgba(251,252,253,0.3)" opacity="0.00001" wind-power="2" image="false" width="1118"
+        height="730"></canvas>
+    <canvas class="snow-canvas" speed="3" interaction="true" size="12" count="20" wind-power="-5" image="./img/snow.png"
+        width="1118" height="730"></canvas>
+    <script src="js/snowfall.js"></script>
+    <script src="js/quiz.js"></script>
     <script>
         window.addEventListener("load", () => {
             const loadingScreen = document.getElementById("loading-screen");
@@ -54,6 +74,19 @@
                 countdown.innerHTML = "Merry Christmas!";
             }
         }, 1000);
+
+        const wishes = [
+            "Chúc bạn có một mùa Giáng sinh tràn đầy niềm vui và hạnh phúc!",
+            "Giáng sinh an lành và ấm áp đến với bạn và gia đình!",
+            "Chúc bạn một Giáng sinh tràn đầy niềm vui và yêu thương!",
+            "Giáng sinh này, chúc bạn nhận được nhiều món quà ý nghĩa!",
+            "Chúc bạn có một mùa Giáng sinh an lành và hạnh phúc bên người thân!",
+            "Giáng sinh vui vẻ! Chúc bạn luôn tràn đầy sức khỏe và hạnh phúc!",
+            "Chúc bạn một mùa Giáng sinh an lành và một năm mới đầy may mắn!",
+
+        ];
+        function getRandomWish() { const randomIndex = Math.floor(Math.random() * wishes.length); return wishes[randomIndex]; }
+        document.getElementById('wish').innerText = getRandomWish();
     </script>
 </body>
 
