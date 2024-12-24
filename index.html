@@ -18,6 +18,18 @@
         <div class="box blue">🎁</div>
         <div class="box yellow">🎁</div>
     </div>
+    <div class="gift-box">
+        <div class="gift-container">
+            <img class="gift" id="gift-box-body" src="img/1.png">
+            <img class="gift" id="gift-box-lid" src="img/2.png">
+        </div>
+        <img id="suprise_gift" src="img/surprise_gift.png">
+        <button class="close-button">Đóng</button>
+    </div>
+    <div id="music-controls">
+        <button id="toggle-sound">🔊</button>
+    </div>
+    <audio id="audio-player" src="audio/nhac.mp3" loop></audio>
     <div class="welcome">
         <div class="bottom-gift-box">
 
@@ -29,14 +41,14 @@
             <p id="countdown"></p>
         </div>
     </div>
-    <div class="quiz" id="quiz-container">
-        <h2>End-of-Year Reflection</h2>
-        <div id="question-section">
-        </div>
-        <div id="options-section">
-        </div>
+
+    <div class="tree-container">
+        <img id="christmas-tree" src="img/pngwing.png">
     </div>
-    <div id="result" style="margin-top: 20px; font-size: 1.4rem; font-weight: bold; display: none;">
+    <div class="container">
+        <div id=playgame>
+            <a href="game.html">Play a Game</a>
+        </div>
     </div>
 
     <canvas class="snow-canvas" speed="1" interaction="false" size="2" count="80" opacity="0.00001"
@@ -48,7 +60,9 @@
     <canvas class="snow-canvas" speed="3" interaction="true" size="12" count="20" wind-power="-5" image="./img/snow.png"
         width="1118" height="730"></canvas>
     <script src="js/snowfall.js"></script>
+    <!--
     <script src="js/quiz.js"></script>
+-->
     <script>
         window.addEventListener("load", () => {
             const loadingScreen = document.getElementById("loading-screen");
@@ -87,6 +101,68 @@
         ];
         function getRandomWish() { const randomIndex = Math.floor(Math.random() * wishes.length); return wishes[randomIndex]; }
         document.getElementById('wish').innerText = getRandomWish();
+        document.addEventListener("DOMContentLoaded", function () {
+            const audioPlayer = document.getElementById('audio-player');
+            const toggleSoundButton = document.getElementById('toggle-sound');
+            toggleSoundButton.addEventListener('click', function () {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                    toggleSoundButton.textContent = '▶️';
+                    toggleSoundButton.classList.add('playing');
+
+                } else {
+                    audioPlayer.pause();
+                    toggleSoundButton.textContent = '⏸️';
+                    toggleSoundButton.classList.remove('playing');
+                }
+            });
+
+        });
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script>
+        const tree = document.getElementById('christmas-tree');
+        const giftBox = document.querySelector('.gift-box');
+        const closeButton = document.querySelector('.close-button');
+
+
+        let clickCount = 0;
+        const sound = new Howl({
+            src: ['audio/christmas-bells.mp3']
+        });
+
+        tree.addEventListener('click', () => {
+            tree.classList.add('shake');
+            setTimeout(() => tree.classList.remove('shake'), 500);
+            sound.play();
+            clickCount++;
+            if (clickCount >= 5) {
+                giftBox.style.display = 'block';
+                clickCount = 0;
+            }
+        });
+
+        closeButton.addEventListener('click', () => {
+            giftBox.style.display = 'none';
+        });
+        const style = document.createElement('style');
+        style.innerHTML = `
+          .shake {
+            animation: shake 0.5s;
+          }
+    @keyframes shake { 0%, 100% { transform: translate(0, 0); } 
+    10% { transform: translate(-5px, -5px); } 
+    20% { transform: translate(5px, -5px); } 
+    30% { transform: translate(-5px, 5px); } 
+    40% { transform: translate(5px, 5px); } 
+    50% { transform: translate(-5px, -5px); } 
+    60% { transform: translate(5px, -5px); } 
+    70% { transform: translate(-5px, 5px); } 
+    80% { transform: translate(5px, 5px); } 
+    90% { transform: translate(-5px, -5px); } }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 
