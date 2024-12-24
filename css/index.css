@@ -361,6 +361,7 @@ body {
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
 }
 
 .gift {
@@ -426,7 +427,6 @@ body {
     width: 50vw;
     height: auto;
     animation: open-gift 2s ease forwards;
-    z-index: 9999;
 }
 
 @keyframes open-gift {
